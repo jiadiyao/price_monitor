@@ -1,0 +1,12 @@
+import smtplib
+
+def send_mail(message, su=""):
+        server = smtplib.SMTP('smtp.googlemail.com',587)
+        server.starttls()
+        server.login('USERNAME','PASSWORD')
+        server.set_debuglevel(1)
+        subj = "Subject:"+ "Euro Price reached! "+su+"\n\n"
+        msg = message
+        fullmail = subj + msg
+        smtpresult=server.sendmail('From: FROM EMAIL', ('TO EMAIL 1', 'TO EMAIL 2'), fullmail)
+
